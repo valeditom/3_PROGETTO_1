@@ -48,3 +48,46 @@ for eps in eps_values:
     print(f"\nEPS: {eps}")
     print(f"Numero cluster: {n_clusters}")
     print(f"Punti rumorosi: {n_noise}")
+
+print()
+
+# =========================
+# 3. ELBOW METHOD
+# =========================
+
+inertias = []
+
+for k in range(1, 11):
+    kmeans = KMeans(
+        n_clusters=k,
+        random_state=42,
+        n_init=10
+    )
+
+    kmeans.fit(X_scaled)
+
+    inertias.append(kmeans.inertia_)
+
+
+plt.figure(figsize=(8, 5))
+plt.plot(range(1, 11), inertias, marker="o")
+plt.axvline(x=3, linestyle="--")
+plt.title("Elbow Method")
+plt.xlabel("Numero di cluster K")
+plt.ylabel("Inertia / WCSS")
+plt.xticks(range(1, 11))
+plt.show()
+
+# =========================
+# 4. K-MEANS FINALE
+# =========================
+
+k_final = 3
+
+kmeans = KMeans(
+    n_clusters=k_final,
+    random_state=42,
+    n_init=10
+)
+
+labels = kmeans.fit_predict(X_scaled)
