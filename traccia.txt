@@ -1,0 +1,24 @@
+1. Data Exploration & Preprocessing
+Caricamento e Analisi: Caricare il dataset e fornire un'analisi descrittiva iniziale (es. df.describe()).
+Standardizzazione: Applicare la standardizzazione alle feature ($X$) per garantire che tutti gli attributi abbiano media zero e deviazione standard unitaria.
+
+2. Stima di $K$ con DBSCAN
+Eseguire l'algoritmo DBSCAN iterativamente per analizzare la struttura dei dati basata sulla densità.
+Parametri di Iterazione:$min\_samples = 5$$eps \in [0.35, 0.45, 0.55]$
+$min\_samples = 5$
+$eps \in [0.35, 0.45, 0.55]$
+Metriche da determinare per ogni esecuzione:Il numero di cluster $K$ identificati.Il numero di punti rumorosi (label -1).
+Il numero di cluster $K$ identificati.
+Il numero di punti rumorosi (label -1).
+Selezione: Individuare il numero di cluster $K$ più plausibile tra i risultati ottenuti.
+
+3. Stima di $K$ con Elbow Method
+
+Configurazione:Algoritmo: K-Means.Range di $K$: da 1 a 10.Algoritmo: K-Means.Range di $K$: da 1 a 10.Visualizzazione:Plot del grafico dell'Elbow Method (Inerzia sull'asse Y e $K$ sull'asse X).Identificazione del "punto di gomito" (dove la curva si piega).Inserimento di un asse verticale in corrispondenza del valore $x = K$ scelto.Plot del grafico dell'Elbow Method (Inerzia sull'asse Y e $K$ sull'asse X).Identificazione del "punto di gomito" (dove la curva si piega).Inserimento di un asse verticale in corrispondenza del valore $x = K$ scelto.
+
+4. Applicazione Finale & Visualizzazione
+Clusterizzazione Definitiva: Stabilire il $K$ finale e applicare il K-Means sul dataset standardizzato.
+Valutazione: Calcolare il Silhouette Score per valutare la coesione interna e la separazione dei cluster.
+Visualizzazione Risultati:Plot dei dati proiettati in 2D (utilizzando le prime due feature).+1Rappresentazione dei centroidi dei cluster.
+Plot dei dati proiettati in 2D (utilizzando le prime due feature).+1
+Rappresentazione dei centroidi dei cluster.
