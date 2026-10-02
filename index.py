@@ -91,3 +91,32 @@ kmeans = KMeans(
 )
 
 labels = kmeans.fit_predict(X_scaled)
+
+# =========================
+# SILHOUETTE SCORE
+# =========================
+
+silhouette = silhouette_score(
+    X_scaled,
+    labels
+)
+
+print("\nSilhouette Score:", silhouette)
+
+# =========================
+# CENTROIDI
+# =========================
+
+centroids = kmeans.cluster_centers_
+
+# =========================
+# VISUALIZZAZIONE
+# =========================
+
+plt.figure(figsize=(8, 6))
+plt.scatter(X_scaled[:, 0], X_scaled[:, 1], c=labels, alpha=0.7)
+plt.scatter(centroids[:, 0], centroids[:, 1], marker="X", s=200, edgecolors="black")
+plt.xlabel("Sepal Length standardizzata")
+plt.ylabel("Sepal Width standardizzata")
+plt.title("K-Means con K = 3")
+plt.show()
